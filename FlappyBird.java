@@ -33,3 +33,4 @@ public class FlappyBird implements ActionListener, KeyListener {
     public static void main(String[] args) {
         new FlappyBird().go();
     }
+example
