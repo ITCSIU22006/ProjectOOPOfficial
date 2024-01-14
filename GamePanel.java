@@ -119,3 +119,44 @@ public class GamePanel extends JPanel {
       g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
       bird.update(g);
       g.setColor(Color.RED);
+      for (Rectangle r : rects) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.GREEN);
+        AffineTransform old = g2d.getTransform();
+        g2d.translate((r.x + PIPE_W / 2), (r.y + PIPE_H / 2) - 8);
+        if (r.y < FlappyBird.HEIGHT / 2) {
+          g2d.translate(0, r.height);
+          g2d.rotate(Math.PI);
+        }
+
+        g2d.drawImage(pipeHead, -PIPE_W /2, (-PIPE_H / 2), GamePanel.PIPE_W, GamePanel.PIPE_H, null);
+        g2d.drawImage(pipeLegth, -PIPE_W / 2, (PIPE_H / 2), GamePanel.PIPE_W, r.height, null);
+        g2d.setTransform(old);
+      }
+      g.setFont(scoreFont);
+      g.setColor(Color.BLACK);
+      g.drawString("Score: " + fb.getScore(), 10, 20);
+    } else if (fb.select2()) {
+      g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+      bird.update(g);
+      g.setColor(Color.RED);
+      for (Rectangle r : rects) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.GREEN);
+        AffineTransform old = g2d.getTransform();
+        g2d.translate((r.x + PIPE_W / 2), (r.y + PIPE_H / 2) - 8);
+        if (r.y < FlappyBird.HEIGHT / 2) {
+          g2d.translate(0, r.height);
+          g2d.rotate(Math.PI);
+        }
+
+        g2d.drawImage(pipeHead, -PIPE_W /2, (-PIPE_H / 2), GamePanel.PIPE_W, GamePanel.PIPE_H, null);
+        g2d.drawImage(pipeLegth, -PIPE_W / 2, (PIPE_H / 2), GamePanel.PIPE_W, r.height, null);
+        g2d.setTransform(old);
+      }
+      g.setFont(scoreFont);
+      g.setColor(Color.BLACK);
+      g.drawString("Score: " + fb.getScore(), 10, 20);
+    }
+  }
+}
